@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Amy ✨</title>
+  <!-- خطوط عربية ولاتينية أنيقة -->
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital@1&family=Reem+Kufi:wght@500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <!-- مكتبة مؤثرات Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <style>
+    :root {
+      --bg-color: #fdfbf7;
+      --primary-color: #d4a373;
+      --accent-pink: #f4acb7;
+      --gold: #e5b869;
+      --text-dark: #4a3f35;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Reem Kufi', sans-serif;
+      background: linear-gradient(135deg, #fff5f5 0%, #fde2e4 50%, #fff0f5 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      overflow-x: hidden;
+      color: var(--text-dark);
+    }
+
+    .card-container {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(229, 184, 105, 0.3);
+      border-radius: 24px;
+      padding: 40px 30px;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(244, 172, 183, 0.3);
+      position: relative;
+    }
+
+    .date-badge {
+      display: inline-block;
+      background: linear-gradient(45deg, #f4acb7, #e5b869);
+      color: white;
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(229, 184, 105, 0.4);
+    }
+
+    h1.english-name {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5rem;
+      color: #b5838d;
+      margin-bottom: 5px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+    }
+
+    h2.title {
+      font-size: 1.8rem;
+      color: var(--text-dark);
+      margin-bottom: 25px;
+    }
+
+    /* صندوق المفاجأة التفاعلي */
+    .gift-box {
+      font-size: 5rem;
+      cursor: pointer;
+      margin: 20px 0;
+      display: inline-block;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      animation: pulse 2s infinite;
+    }
+
+    .gift-box:hover {
+      transform: scale(1.15) rotate(5deg);
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    .click-hint {
+      font-size: 0.9rem;
+      color: #9d8189;
+      margin-bottom: 20px;
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* الرسالة المخفية */
+    .secret-message {
+      display: none;
+      background: #fff;
+      padding: 25px;
+      border-radius: 16px;
+      border-right: 4px solid var(--accent-pink);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+      margin-top: 20px;
+      text-align: right;
+      line-height: 1.8;
+      font-family: 'Amiri', serif;
+      font-size: 1.15rem;
+      color: #5c4d4d;
+    }
+
+    .secret-message p {
+      margin-bottom: 12px;
+    }
+
+    .footer-signature {
+      margin-top: 25px;
+      font-size: 0.95rem;
+      color: #b5838d;
+      font-weight: bold;
+    }
+
+    /* مشغل صوت خفي/ناعم */
+    audio { display: none; }
+  </style>
+</head>
+<body>
+
+  <div class="card-container">
+    <div class="date-badge">✨ 27 / 10 / 2026 ✨</div>
+    
+    <h1 class="english-name">Happy Birthday Amy</h1>
+    <h2 class="title">كل عام وأنتِ بألف خير ❤️</h2>
+
+    <div class="click-hint">اضغطي على الهديّة لفتح المفاجأة 🎁</div>
+
+    <div class="gift-box" onclick="openGift()">
+      🎁
+    </div>
+
+    <!-- الرسالة التي ستظهر بعد الضغط -->
+    <div class="secret-message" id="message">
+      <p>إلى الرقيقة **إيمي** ،</p>
+      <p>في يوم ميلادكِ المميّز، أتمنى لكِ سنة جديدة مليئة بالفرح والجمال الذي يشبه قلبك. دمتِ نائتةً بالخير والنعمة، وحقق الله لكِ كل ما تتمنين وأكثر. ✨🌸</p>
+      <div class="footer-signature">صُنع بحب خصيصاً لكِ 
+  <script>
+    function openGift() {
+      // إظهار الرسالة
+      const messageBox = document.getElementById('message');
+      messageBox.style.display = 'block';
+
+      // تشغيل الموسيقى
+      const music = document.getElementById('bday-music');
+      music.play().catch(() => {}); // للتغلب على قيود تشغيل الصوت التلقائي في المتصفحات
+
+      // إطلاق قصاصات الورق الملونة والنجوم (Confetti)
+      confetti({
+        particleCount: 120,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#f4acb7', '#e5b869', '#ffffff', '#b5838d']
+      });
+
+      // إطلاق دفعة إضافية بعد ثانية
+      setTimeout(() => {
+        confetti({
+          particleCount: 80,
+          angle: 60,
+          spread: 55,
+          origin: { x: 0 }
+        });
+        confetti({
+          particleCount: 80,
+          angle: 120,
+          spread: 55,
+          origin: { x: 1 }
+        });
+      }, 500);
+    }
+  </script>
+</body>
+</html>
