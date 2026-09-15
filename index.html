@@ -158,39 +158,31 @@
       <p>في يوم ميلادكِ المميّز، أتمنى لكِ سنة جديدة مليئة بالفرح والجمال الذي يشبه قلبك. دمتِ نائتةً بالخير والنعمة، وحقق الله لكِ كل ما تتمنين وأكثر. ✨🌸</p>
       <div class="footer-signature">صُنع بحب خصيصاً لكِ 
   <script>
-    function openGift() {
-      // إظهار الرسالة
-      const messageBox = document.getElementById('message');
-      messageBox.style.display = 'block';
+    <script>
+  function openGift() {
+    // 1. إظهار الرسالة
+    const messageBox = document.getElementById('message');
+    messageBox.style.display = 'block';
 
-      // تشغيل الموسيقى
-      const music = document.getElementById('bday-music');
-      music.play().catch(() => {}); // للتغلب على قيود تشغيل الصوت التلقائي في المتصفحات
-
-      // إطلاق قصاصات الورق الملونة والنجوم (Confetti)
+    // 2. إطلاق التأثيرات
+    if (typeof confetti === 'function') {
       confetti({
         particleCount: 120,
         spread: 70,
         origin: { y: 0.6 },
         colors: ['#f4acb7', '#e5b869', '#ffffff', '#b5838d']
       });
-
-      // إطلاق دفعة إضافية بعد ثانية
-      setTimeout(() => {
-        confetti({
-          particleCount: 80,
-          angle: 60,
-          spread: 55,
-          origin: { x: 0 }
-        });
-        confetti({
-          particleCount: 80,
-          angle: 120,
-          spread: 55,
-          origin: { x: 1 }
-        });
-      }, 500);
     }
+
+    // 3. تشغيل الصوت عند الضغط
+    const music = document.getElementById('bday-music');
+    if (music) {
+      music.currentTime = 0;
+      music.play().catch((err) => console.log(err));
+    }
+  }
+</script>
+
   </script>
 </body>
 </html>
